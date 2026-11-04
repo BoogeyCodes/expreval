@@ -85,3 +85,23 @@ class TestErrors:
     def test_domain_error_is_wrapped(self):
         with pytest.raises(ExprError):
             evaluate("sqrt(-1)")
+
+
+def test_new_builtin_functions():
+    assert evaluate("sign(-4)") == -1
+    assert evaluate("sign(0)") == 0
+    assert evaluate("cbrt(27)") == 3
+    assert evaluate("cbrt(-8)") == -2
+    assert evaluate("clamp(12, 0, 10)") == 10
+    assert evaluate("clamp(-3, 0, 10)") == 0
+    assert evaluate("avg(2, 4, 6)") == 4
+    assert round(evaluate("degrees(pi)"), 6) == 180
+    assert round(evaluate("radians(180)"), 6) == round(evaluate("pi"), 6)
+
+
+def test_clamp_arity_is_checked():
+    import pytest
+
+    from expreval import ExprError
+    with pytest.raises(ExprError):
+        evaluate("clamp(1, 2)")

@@ -31,9 +31,9 @@ functions you allow. It is dependency-free and small enough to read.
   right-associative `^`. Unary minus binds looser than `^`, so `-2^2` is `-4`.
 - **Numbers** including decimals and scientific notation (`1.5e-3`).
 - **Constants**: `pi`, `e`, `tau`, `inf`.
-- **Functions**: `abs`, `ceil`, `floor`, `round`, `sqrt`, `exp`, `log` (natural, or `log(x, base)`),
-  `log2`, `log10`, the trig family, `atan2`, `hypot`, `pow`, and the variadic `min`, `max`, `sum`,
-  `gcd`.
+- **Functions**: `abs`, `ceil`, `floor`, `round`, `sqrt`, `cbrt`, `exp`, `log` (natural, or
+  `log(x, base)`), `log2`, `log10`, `sign`, `clamp(x, lo, hi)`, `degrees`, `radians`, the trig family,
+  `atan2`, `hypot`, `pow`, and the variadic `min`, `max`, `sum`, `avg`, `gcd`.
 - **Variables**, passed as a mapping or keyword arguments.
 - **Clear errors**: every problem — unbalanced parentheses, unknown names, wrong argument counts,
   division by zero, a math domain error — raises `ExprError` with a message, never a bare crash.

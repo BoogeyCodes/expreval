@@ -35,7 +35,13 @@ FUNCTIONS: dict[str, tuple[Callable[..., float], int]] = {
     "min": (min, -1),
     "max": (max, -1),
     "sum": (lambda *xs: math.fsum(xs), -1),
+    "avg": (lambda *xs: math.fsum(xs) / len(xs), -1),
     "gcd": (math.gcd, -1),
+    "sign": (lambda x: float((x > 0) - (x < 0)), 1),
+    "cbrt": (lambda x: math.copysign(abs(x) ** (1 / 3), x), 1),  # cube root, defined for negatives
+    "clamp": (lambda x, lo, hi: max(lo, min(hi, x)), 3),
+    "degrees": (math.degrees, 1),
+    "radians": (math.radians, 1),
 }
 
 # A few functions accept an optional extra argument; list their allowed arities here.
